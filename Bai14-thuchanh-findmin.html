@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr=+prompt("Nhập vào độ dài của mảng: ")
+        }
+        while (sizeArr<0);
+        for (let i=0;i<sizeArr;i++) {
+            a[i]=+prompt("Nhập vào giá trị phần tử "+i+" của mảng: ")
+        }
+    }
+    function displayArr(a) {
+        for (let i=0;i<a.length;i++) {
+            document.write(a[i]+",");
+        }
+    }
+
+    function indexOfmin(a) {
+        let min=a[0];
+        let index;
+        if (a.length==0){
+            return -1;
+        } else {
+            for (let i=1;i<a.length;i++) {
+                if (min>a[i]) {
+                    min=a[i]
+                    index=i;
+                }
+            }
+            return index;
+        }
+    }
+
+    let num=[];
+    inputArray(num);
+    displayArr(num);
+    let smallest=indexOfmin(num);
+    if (smallest==-1) {
+        document.write("Mảng rỗng.")
+    } else {
+        document.write("<br>"+"Giá trị nhỏ nhất của mảng là: " +num[smallest]);//+ smallest);
+    }
+</script>
+</body>
+</html>
